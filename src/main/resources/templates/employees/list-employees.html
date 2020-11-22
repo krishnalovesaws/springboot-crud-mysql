@@ -9,20 +9,20 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-	<title>Employee Directory</title>
+	<title>Subscription App</title>
 </head>
 
 <body>
 
 <div class="container">
 
-	<h3>Employee Directory</h3>
+	<h3>Subscription App</h3>
 	<hr>
 	
 	<!-- Add button -->
 	<a th:href="@{/employees/add}"
 		class="btn btn-primary btn-sm mb-3">
-		Add Employee
+		Add Subscribers
 	</a>
 	
 	
@@ -55,11 +55,17 @@
 						onClick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
 						Delete
 					</a>
+					<a th:href="@{/employees/addSubscription/{email}(email = ${tempEmployee.email})}"
+						class="btn btn-success btn-sm" 
+						onClick="if (!(confirm('Are you sure you want to subscribe this site?'))) return false">
+						Subscribe
+					</a>
 				</td>
 			</tr>
 		</tbody>		
 	</table>
-	
+	<h2 style="color:yellowgreen" th:text="${message}"></h2>
+	<h2 style="color:yellowgreen" th:text="${notification}"></h2>
 </div>
 	
 </body>
